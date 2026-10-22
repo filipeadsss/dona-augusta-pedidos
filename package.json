@@ -1,0 +1,18 @@
+{
+  "name": "dona-augusta-pedidos",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "firebase": "^10.14.1",
+    "next": "^14.2.15",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

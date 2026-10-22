@@ -1,0 +1,178 @@
+:root {
+  --bg: #fffaf3;
+  --card: #ffffff;
+  --ink: #1f2937;
+  --muted: #5b6472;
+  --brand: #9a3412;
+  --brand-ink: #ffffff;
+  --brand-soft: #ffedd5;
+  --ok: #15803d;
+  --warn: #b91c1c;
+  --warn-soft: #fee2e2;
+  --line: #e7dcc8;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+h1 { font-size: 26px; margin: 0 0 4px; }
+h2 { font-size: 22px; margin: 0 0 10px; }
+h3 { font-size: 19px; margin: 18px 0 8px; }
+p { margin: 6px 0; }
+
+.container { max-width: 640px; margin: 0 auto; padding: 16px 16px 140px; }
+.container.wide { max-width: 1040px; padding-bottom: 60px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 12px 0;
+}
+
+.muted { color: var(--muted); }
+.small { font-size: 15px; }
+.center { text-align: center; }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.spread { justify-content: space-between; }
+.grow { flex: 1; }
+
+/* Botões grandes */
+.btn {
+  appearance: none;
+  border: 2px solid var(--brand);
+  background: var(--brand);
+  color: var(--brand-ink);
+  font: inherit;
+  font-weight: 700;
+  min-height: 54px;
+  padding: 10px 20px;
+  border-radius: 14px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn.full { width: 100%; }
+.btn.secondary { background: #fff; color: var(--brand); }
+.btn.ok { background: var(--ok); border-color: var(--ok); }
+.btn.danger { background: #fff; color: var(--warn); border-color: var(--warn); }
+.btn.small { min-height: 40px; padding: 6px 12px; font-size: 15px; border-radius: 10px; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* Opções tocáveis (acompanhamentos, tamanhos, pagamento) */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  appearance: none;
+  font: inherit;
+  min-height: 50px;
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 2px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+}
+.chip.on { border-color: var(--brand); background: var(--brand-soft); font-weight: 700; }
+.chip:disabled { opacity: 0.4; cursor: not-allowed; }
+.chip .price { display: block; font-size: 15px; color: var(--muted); font-weight: 400; }
+.chip.on .price { color: var(--brand); }
+
+.counter { font-weight: 700; color: var(--brand); }
+
+label.field { display: block; margin: 12px 0 4px; font-weight: 700; }
+input[type='text'], input[type='tel'], input[type='email'], input[type='password'], input[type='number'], select, textarea {
+  width: 100%;
+  font: inherit;
+  padding: 12px;
+  min-height: 50px;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+}
+textarea { min-height: 80px; }
+input:focus, select:focus, textarea:focus, button:focus-visible { outline: 3px solid #fdba74; outline-offset: 1px; }
+
+.steps { display: flex; gap: 6px; margin: 10px 0 4px; }
+.steps span { flex: 1; height: 8px; border-radius: 4px; background: var(--line); }
+.steps span.on { background: var(--brand); }
+
+.alert { background: var(--warn-soft); color: #7f1d1d; border: 2px solid #fca5a5; border-radius: 12px; padding: 12px; margin: 12px 0; }
+.alert ul { margin: 4px 0 0 18px; padding: 0; }
+.info { background: var(--brand-soft); border: 2px solid #fdba74; border-radius: 12px; padding: 12px; margin: 12px 0; }
+.goodbox { background: #dcfce7; border: 2px solid #86efac; border-radius: 12px; padding: 12px; margin: 12px 0; }
+
+/* Barra fixa com total */
+.bar {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  background: #fff; border-top: 2px solid var(--line);
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  z-index: 10;
+}
+.bar .inner { max-width: 640px; margin: 0 auto; display: flex; gap: 12px; align-items: center; }
+.bar .total { font-size: 20px; font-weight: 800; white-space: nowrap; }
+.bar .btn { flex: 1; }
+
+.qty { display: flex; align-items: center; gap: 10px; }
+.qty button { min-width: 48px; min-height: 48px; font-size: 24px; font-weight: 800; border-radius: 12px; border: 2px solid var(--brand); background: #fff; color: var(--brand); cursor: pointer; }
+.qty .n { min-width: 28px; text-align: center; font-weight: 800; }
+
+.item-line { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.item-line:last-child { border-bottom: 0; }
+
+.badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 14px; font-weight: 700; background: #e5e7eb; color: #111827; }
+.badge.novo { background: #fde68a; color: #78350f; }
+.badge.confirmado, .badge.preparo { background: #bfdbfe; color: #1e3a8a; }
+.badge.pronto, .badge.saiu { background: #bbf7d0; color: #14532d; }
+.badge.concluido { background: #e5e7eb; }
+.badge.cancelado { background: #fecaca; color: #7f1d1d; }
+
+/* Painel */
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
+.tab { min-height: 48px; padding: 8px 18px; border-radius: 12px; border: 2px solid var(--line); background: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+.tab.on { background: var(--brand); color: #fff; border-color: var(--brand); }
+.order.novo { border: 3px solid #f59e0b; }
+.switch { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 700; }
+.switch input { width: 26px; height: 26px; }
+.inline-form { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.inline-form input { flex: 1; min-width: 140px; }
+.table-edit { display: grid; grid-template-columns: 1fr 120px auto; gap: 8px; margin: 8px 0; align-items: center; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+
+/* Comanda térmica */
+.comanda { display: none; }
+
+@media print {
+  .no-print { display: none !important; }
+  .comanda { display: block !important; }
+  html, body { background: #fff !important; margin: 0; padding: 0; font-size: 12px; }
+  .comanda {
+    color: #000;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.3;
+    padding: 0;
+  }
+  .comanda h1 { font-size: 15px; text-align: center; margin: 0 0 2px; }
+  .comanda .sep { border-top: 1px dashed #000; margin: 6px 0; }
+  .comanda .big { font-size: 15px; font-weight: 800; }
+  .comanda .copia { text-align: center; font-weight: 800; border: 2px solid #000; margin: 4px 0; padding: 2px; }
+  .comanda .linha { display: flex; justify-content: space-between; gap: 6px; }
+  .comanda .bloco { margin: 4px 0; page-break-inside: avoid; }
+}
