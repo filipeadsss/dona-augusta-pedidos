@@ -32,8 +32,14 @@ export default function Comanda({ pedido, restaurante, largura = 80, copia = fal
       {pedido.marmitas.map((m, i) => (
         <div className="bloco" key={i}>
           <div className="big">MARMITA {i + 1} - {TAMANHOS[m.tamanho]}</div>
-          <div>{m.acompanhamentos.length ? m.acompanhamentos.join(', ') : 'Sem acompanhamentos'}</div>
-          <div><b>{m.proteina ? m.proteina.nome : 'SEM PROTEÍNA'}</b></div>
+          {m.acompanhamentos.length ? (
+            m.acompanhamentos.map((a, j) => (
+              <div className="item" key={j}>• {a}</div>
+            ))
+          ) : (
+            <div className="item">Sem acompanhamentos</div>
+          )}
+          <div className="proteina">{m.proteina ? `PROTEÍNA: ${m.proteina.nome}` : 'SEM PROTEÍNA'}</div>
           <div className="linha"><span>valor</span><span>{formatBRL(m.preco)}</span></div>
         </div>
       ))}

@@ -175,4 +175,6 @@ input:focus, select:focus, textarea:focus, button:focus-visible { outline: 3px s
   .comanda .copia { text-align: center; font-weight: 800; border: 2px solid #000; margin: 4px 0; padding: 2px; }
   .comanda .linha { display: flex; justify-content: space-between; gap: 6px; }
   .comanda .bloco { margin: 4px 0; page-break-inside: avoid; }
+  .comanda .item { font-size: 13px; padding-left: 4mm; text-indent: -4mm; margin: 1px 0; }
+  .comanda .proteina { font-size: 14px; font-weight: 800; margin: 4px 0 2px; }
 }
