@@ -9,6 +9,9 @@ Next.js (App Router) + Firebase (Firestore e Authentication) + Vercel.
 2. O cliente abre o link (`/`), monta as marmitas em 3 passos (marmitas, bebidas, entrega e pagamento) e toca em **Enviar pedido**.
 3. O pedido é **salvo no Firestore** (aparece sozinho no painel, com aviso sonoro) e o WhatsApp abre com a mensagem pronta para o cliente enviar.
 4. No painel, **Aceitar e imprimir** gera o número do pedido e abre a impressão da comanda. Depois é só avançar o status.
+5. **Editar pedido** altera cliente, marmitas, bebidas, entrega e pagamento; tudo que mudou fica no **Histórico** do pedido (quem, quando e o quê).
+6. **+ Novo pedido** permite ao restaurante montar o pedido de um cliente que não consegue usar o link; ele já sai aceito, numerado e impresso.
+7. Filtros da lista: em andamento, hoje, esta semana (de segunda), últimos 14 dias, este mês e todos.
 
 Sem login e sem telefone para o cliente. O contato do cliente é o próprio WhatsApp dele (a mensagem chega com o código do pedido).
 
@@ -63,6 +66,6 @@ npm test                     # testes dos cálculos e da mensagem
 - Os preços do pedido são calculados no navegador do cliente. As regras do Firestore validam formato e limites, mas não recalculam preços. O painel mostra **"Conferir valores"** se algo não bater com a configuração atual.
 - O pedido é salvo antes de o cliente enviar a mensagem no WhatsApp. Pedido "Novo" sem mensagem correspondente pode ser um cliente que desistiu na última tela.
 - Não há limite de pedidos por pessoa (qualquer um com o link pode criar pedidos). Se virar problema, o próximo passo é Firebase App Check.
-- Sem edição de itens do pedido no painel (só status, cancelamento e reimpressão).
+- O histórico de edições guarda a hora do navegador de quem editou e o e-mail do login; serve como registro operacional, não como auditoria à prova de fraude.
 - Sem notificação automática ao cliente; o contato é pelo WhatsApp.
 - O plano Hobby do Vercel é voltado a uso pessoal/não comercial. Confira os termos atuais antes de cobrar pelo sistema.
